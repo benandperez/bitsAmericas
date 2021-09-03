@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block title %}Artists index{% endblock %}
+
+{% block content %}
+<div class="row content">
+    <h3>Artists index</h3>
+
+    <div class="col-12">
+        <table id="data-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artist in artists %}
+            <tr>
+                <td>{{ artist.id }}</td>
+                <td>{{ artist.name }}</td>
+                <td>
+                    <a href="{{ artist.externalUrls }}" target="_blank">show in Spotify</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+
+{#    <a href="{{ path('artists_new') }}">Create new</a>#}
+{% endblock %}

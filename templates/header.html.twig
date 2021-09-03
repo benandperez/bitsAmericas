@@ -1,0 +1,18 @@
+{% block header %}
+    <header>
+        <div class="header">
+
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="{{ path('releases') }}">New Releases</a></li>
+                    <li><a href="{{ path('artists_index') }}">List Artist</a></li>
+                </ul>
+            </nav>
+            <div class="header-image">
+                <a href="" class="logo_menu">
+                    <img src="{{ asset('img/bits-americas.png') }}" class="img-fluid" width="200" height="40"/>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}

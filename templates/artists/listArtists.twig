@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block title %}Artists{% endblock %}
+
+{% block content %}
+    <div class="row content">
+        <h3>Albums </h3>
+
+        <div class="col-12">
+            <table id="data-table">
+                <thead>
+                <tr>
+                    <th>Picture</th>
+                    <th>Album</th>
+                    <th>lyric</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in artist.items %}
+                    <tr>
+                        <td>
+                            <div class="thumb-home-mini" style="background: url('{{ item.images[0].url }}') center no-repeat;">
+                        </td>
+                        <td>{{ item.name }}</td>
+                        {% set nameTrack = searchAlbumTracks(item.id) %}
+                        <td>{{ nameTrack.items[0].name }}</td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
