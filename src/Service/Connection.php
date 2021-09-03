@@ -15,7 +15,7 @@ class Connection
     {
 
         $url = "https://api.spotify.com/v1/browse/new-releases?country=".$country."&limit=".$limit."&offset=".$offset."";
-        $header = array('Authorization:  Bearer BQCxghvO_QNrJcvAcRMfYwpAlYQp2WSpxMbhIuNLyMT6EXLVFcEk7aJ7v6ZzqYtwKNaptAcW8uOOmiD2rzads3bvtq52T59ZB5VJhsSytxEPIkxvmZ06mBKfrhr4xSNKkJFWYzdmJz67');
+        $header = array('Authorization:  Bearer BQA8conECPjc7Zl4CgEmnXBgwxy0p-s8_SNax5F5G5EOq0-WfhzuJRACBsu_ilfSk2gREC32hIAKTGxZthmbJ3wmXdjuMwMKPkHRuB4PjF-ltEgzfOqpuFHS9WzTi10j7aTUeJU1ahwn3ta4zqg-');
 
         return $this->connection($url, $header);
 
@@ -25,7 +25,7 @@ class Connection
     {
 
         $url = "https://api.spotify.com/v1/artists/".$idArtist;
-        $header = array('Authorization:  Bearer BQCxghvO_QNrJcvAcRMfYwpAlYQp2WSpxMbhIuNLyMT6EXLVFcEk7aJ7v6ZzqYtwKNaptAcW8uOOmiD2rzads3bvtq52T59ZB5VJhsSytxEPIkxvmZ06mBKfrhr4xSNKkJFWYzdmJz67');
+        $header = array('Authorization:  Bearer BQA8conECPjc7Zl4CgEmnXBgwxy0p-s8_SNax5F5G5EOq0-WfhzuJRACBsu_ilfSk2gREC32hIAKTGxZthmbJ3wmXdjuMwMKPkHRuB4PjF-ltEgzfOqpuFHS9WzTi10j7aTUeJU1ahwn3ta4zqg-');
 
         return $this->connection($url, $header);
 
@@ -35,7 +35,7 @@ class Connection
     {
 
         $url = "https://api.spotify.com/v1/artists/".$idArtist."/albums?market=".$market."&limit=".$limit."&offset=".$offset."";
-        $header = array('Authorization:  Bearer BQCxghvO_QNrJcvAcRMfYwpAlYQp2WSpxMbhIuNLyMT6EXLVFcEk7aJ7v6ZzqYtwKNaptAcW8uOOmiD2rzads3bvtq52T59ZB5VJhsSytxEPIkxvmZ06mBKfrhr4xSNKkJFWYzdmJz67');
+        $header = array('Authorization:  Bearer BQA8conECPjc7Zl4CgEmnXBgwxy0p-s8_SNax5F5G5EOq0-WfhzuJRACBsu_ilfSk2gREC32hIAKTGxZthmbJ3wmXdjuMwMKPkHRuB4PjF-ltEgzfOqpuFHS9WzTi10j7aTUeJU1ahwn3ta4zqg-');
 
         return $this->connection($url, $header);
 
@@ -46,7 +46,7 @@ class Connection
     {
 
         $url = "https://api.spotify.com/v1/albums/".$idAlbum."/tracks?limit=1";
-        $header = array('Authorization:  Bearer BQCxghvO_QNrJcvAcRMfYwpAlYQp2WSpxMbhIuNLyMT6EXLVFcEk7aJ7v6ZzqYtwKNaptAcW8uOOmiD2rzads3bvtq52T59ZB5VJhsSytxEPIkxvmZ06mBKfrhr4xSNKkJFWYzdmJz67');
+        $header = array('Authorization:  Bearer BQA8conECPjc7Zl4CgEmnXBgwxy0p-s8_SNax5F5G5EOq0-WfhzuJRACBsu_ilfSk2gREC32hIAKTGxZthmbJ3wmXdjuMwMKPkHRuB4PjF-ltEgzfOqpuFHS9WzTi10j7aTUeJU1ahwn3ta4zqg-');
 
         return $this->connection($url, $header);
 

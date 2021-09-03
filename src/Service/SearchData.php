@@ -4,7 +4,6 @@
 namespace App\Service;
 
 
-
 use App\Entity\Artists;
 use App\Repository\ArtistsRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,22 +41,27 @@ class SearchData
 
         return $this->connection->getDataApiGeneral($country, $limit, $offset);
     }
+
     public function searchDataSpotifyArtist($idArtist = null, $country = null, $limit = null, $offset = null)
     {
-        $dataArtist = $this->connection->getDataApiArtist($idArtist);
+        $dataArtist = $this->searchArtist($idArtist);
 
-        $artist = new Artists();
-        $artist->setIdSpotify($dataArtist['id']);
-        $artist->setApiHref($dataArtist['href']);
-        $artist->setExternalUrls($dataArtist['external_urls']['spotify']);
-        $artist->setName($dataArtist['name']);
-        $artist->setUri($dataArtist['uri']);
-        $artist->setImage($dataArtist['images'][0]['url']);
-        $artist->setCreatedAt(new \DateTime());
-        $artist->setUpdatedAt(new \DateTime());
+        $artistDB = $this->artistsRepository->findOneBy(['idSpotify' => $dataArtist['id']]);
 
-        $this->entityManager->persist($artist);
-        $this->entityManager->flush();
+        if (!isset($artistDB)) {
+            $artist = new Artists();
+            $artist->setIdSpotify($dataArtist['id']);
+            $artist->setApiHref($dataArtist['href']);
+            $artist->setExternalUrls($dataArtist['external_urls']['spotify']);
+            $artist->setName($dataArtist['name']);
+            $artist->setUri($dataArtist['uri']);
+            $artist->setImage($dataArtist['images'][0]['url']);
+            $artist->setCreatedAt(new \DateTime());
+            $artist->setUpdatedAt(new \DateTime());
+
+            $this->entityManager->persist($artist);
+            $this->entityManager->flush();
+        }
 
 
         return $this->connection->getDataApiArtistAlbums($idArtist, $country, $limit, $offset);
@@ -67,6 +71,12 @@ class SearchData
     {
 
         return $this->connection->searchAlbumTracks($idAlbum);
+    }
+
+    public function searchArtist($idArtist)
+    {
+
+        return $this->connection->getDataApiArtist($idArtist);
     }
 
 }

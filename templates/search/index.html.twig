@@ -1,35 +1,37 @@
 {% extends 'base.html.twig' %}
 {% block header %}{% endblock %}
 {% block content %}
-    <div class="row content">
-        {% for item in getDataApiSpotify.items %}
-            <div class="col-md-4 px-0">
+    <section class="wrap-container">
+        <div class="container">
+            <div class="row">
+                {% for item in getDataApiSpotify.items %}
+                    <div class="col-md-4 py-3">
+                        <article class="image-music">
+                            <img class="thumb-home img-fluid" src="{{ item.images[0].url }}">
+                            <div class=" content_host">
+                                <a class="d-block title" href="{{ item.external_urls.spotify }}" target="_blank">
+                                    <span >{{ item.name }}</span>
+                                </a>
 
-                <div class="thumb-home" style="background: url('{{ item.images[0].url }}') center no-repeat;">
+                                {% for artist in item.artists %}
+                                    <a class="subtitile_sho" href="{{ path('artists_show', {'idSpotify': artist.id}) }}">
+                                        <span >{{ artist.name }}</span><br>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </article>
+                    </div>
+                {% else %}
+                    <tr>
+                        <td colspan="7">no records found</td>
+                    </tr>
+                {% endfor %}
+                <br/>
+                <div class="col-md-12">
                 </div>
-                <div class=" content_host">
-                    <a class="d-block" href="{{ item.external_urls.spotify }}" target="_blank">
-                        <span class="title">{{ item.name }}</span>
-                    </a>
-
-                    {% for artist in item.artists %}
-                        <a href="{{ path('artists_show', {'idSpotify': artist.id}) }}">
-                            <span class="subtitile_sho">{{ artist.name }}</span><br>
-                        </a>
-                    {% endfor %}
-                </div>
-
             </div>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        <br/>
-        <div class="col-md-12">
         </div>
-    </div>
-
+    </section>
 {% endblock %}
 {% block myScripts %}
     <script>

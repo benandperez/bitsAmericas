@@ -49,20 +49,13 @@ class ArtistsController extends AbstractController
         $country = 'CO';
         $limit = 10;
         $offset = 5;
-        if (!isset($artist)) {
-            $artist = $this->searchData->searchDataSpotifyArtist($idArtist, $country, $limit, $offset);
 
-            $template = $this->render('artists/show.html.twig', [
-                'artist' => $artist,
-            ]);
-
-        } else {
-            $template = $this->render('artists/index.html.twig', [
-                'artist' => $artist,
-            ]);
-        }
+        $artist = $this->searchData->searchDataSpotifyArtist($idArtist, $country, $limit, $offset);
 
 
-        return $template;
+        return $this->render('artists/show.html.twig', [
+            'artist' => $artist,
+            'idArtist' => $idArtist
+        ]);
     }
 }

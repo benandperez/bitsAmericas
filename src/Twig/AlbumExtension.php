@@ -18,6 +18,7 @@ class AlbumExtension extends AbstractExtension
     {
         return [
             new TwigFunction('searchAlbumTracks', [$this, 'searchAlbum']),
+            new TwigFunction('searchArtist', [$this, 'searchArtist']),
         ];
     }
 
@@ -29,5 +30,9 @@ class AlbumExtension extends AbstractExtension
     public function searchAlbum($idAlbum)
     {
         return $this->searchData->searchAlbumTracks($idAlbum);
+    }
+    public function searchArtist($idArtist)
+    {
+        return $this->searchData->searchArtist($idArtist);
     }
 }
