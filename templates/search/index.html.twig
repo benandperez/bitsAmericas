@@ -35,5 +35,16 @@
 {% endblock %}
 {% block myScripts %}
     <script>
+       var token = app.get('/login', function(req, res) {
+            var scopes = 'user-read-private user-read-email';
+            var my_client_id = '537293974a694d339662e43bfb88644a';
+            var redirect_uri =' {{ path('releases') }}'
+            res.redirect('https://accounts.spotify.com/authorize' +
+                '?response_type=code' +
+                '&client_id=' + my_client_id +
+                (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
+                '&redirect_uri=' + encodeURIComponent(redirect_uri));
+        });
+       console.log(token)
     </script>
 {% endblock %}
