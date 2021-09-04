@@ -27,12 +27,12 @@ class AlbumExtension extends AbstractExtension
         $this->searchData = $searchData;
     }
 
-    public function searchAlbum($idAlbum)
+    public function searchAlbum($idAlbum, $auth)
     {
-        return $this->searchData->searchAlbumTracks($idAlbum);
+        return $this->searchData->searchAlbumTracks($idAlbum, $auth);
     }
-    public function searchArtist($idArtist)
+    public function searchArtist($idArtist, $auth)
     {
-        return $this->searchData->searchArtist($idArtist);
+        return $this->searchData->searchArtist($idArtist, $auth);
     }
 }

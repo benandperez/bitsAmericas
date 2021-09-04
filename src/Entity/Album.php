@@ -13,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Album
 {
+
+    const COUNTRY = 'CO';
+    const LIMIT = 10;
+    const OFFSET = 5;
+
     use TimeStampableEntity;
 
     /**

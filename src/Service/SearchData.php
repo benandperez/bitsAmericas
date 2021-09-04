@@ -36,15 +36,15 @@ class SearchData
         $this->artistsRepository = $artistsRepository;
     }
 
-    public function searchDataSpotifyGeneral($country = null, $limit = null, $offset = null)
+    public function searchDataSpotifyGeneral($country = null, $limit = null, $offset = null, $auth = null)
     {
 
-        return $this->connection->getDataApiGeneral($country, $limit, $offset);
+        return $this->connection->getDataApiGeneral($country, $limit, $offset, $auth);
     }
 
-    public function searchDataSpotifyArtist($idArtist = null, $country = null, $limit = null, $offset = null)
+    public function searchDataSpotifyArtist($idArtist = null, $country = null, $limit = null, $offset = null, $auth = null)
     {
-        $dataArtist = $this->searchArtist($idArtist);
+        $dataArtist = $this->searchArtist($idArtist, $auth);
 
         $artistDB = $this->artistsRepository->findOneBy(['idSpotify' => $dataArtist['id']]);
 
@@ -64,19 +64,19 @@ class SearchData
         }
 
 
-        return $this->connection->getDataApiArtistAlbums($idArtist, $country, $limit, $offset);
+        return $this->connection->getDataApiArtistAlbums($idArtist, $country, $limit, $offset, $auth);
     }
 
-    public function searchAlbumTracks($idAlbum)
+    public function searchAlbumTracks($idAlbum, $auth )
     {
 
-        return $this->connection->searchAlbumTracks($idAlbum);
+        return $this->connection->searchAlbumTracks($idAlbum, $auth);
     }
 
-    public function searchArtist($idArtist)
+    public function searchArtist($idArtist, $auth)
     {
 
-        return $this->connection->getDataApiArtist($idArtist);
+        return $this->connection->getDataApiArtist($idArtist, $auth);
     }
 
 }

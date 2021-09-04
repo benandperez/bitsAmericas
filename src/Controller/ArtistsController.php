@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Album;
 use App\Entity\Artists;
 use App\Form\ArtistsType;
 use App\Repository\ArtistsRepository;
+use App\Service\Connection;
 use App\Service\SearchData;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,10 +32,12 @@ class ArtistsController extends AbstractController
     /**
      * @Route("/", name="artists_index", methods={"GET"})
      */
-    public function index(ArtistsRepository $artistsRepository): Response
+    public function index(ArtistsRepository $artistsRepository, Connection $connection): Response
     {
+        $auth = $connection->connectionAuth();
         return $this->render('artists/index.html.twig', [
             'artists' => $artistsRepository->findAll(),
+            'auth' => $auth
         ]);
     }
 
@@ -43,19 +47,23 @@ class ArtistsController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function show(Artists $artist = null, Request $request): Response
+    public function show(Artists $artist = null, Request $request, Connection $connection): Response
     {
         $idArtist = $request->get('idSpotify');
-        $country = 'CO';
-        $limit = 10;
-        $offset = 5;
 
-        $artist = $this->searchData->searchDataSpotifyArtist($idArtist, $country, $limit, $offset);
+        $country = Album::COUNTRY;
+        $limit = Album::LIMIT;
+        $offset = Album::OFFSET;
+
+        $auth = $connection->connectionAuth();
+
+        $artist = $this->searchData->searchDataSpotifyArtist($idArtist, $country, $limit, $offset, $auth);
 
 
         return $this->render('artists/show.html.twig', [
             'artist' => $artist,
-            'idArtist' => $idArtist
+            'idArtist' => $idArtist,
+            'auth' => $auth
         ]);
     }
 }

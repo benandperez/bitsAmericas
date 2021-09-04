@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9de31e5-2cb2-4f35-b542-57c9ac1bfea3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArtistsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArtistsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReleasesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReleasesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Connection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/SearchData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/SearchData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/AlbumExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/AlbumExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/artists/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/artists/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/artists/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/artists/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/search/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
@@ -154,7 +162,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630654565662</updated>
-      <workItem from="1630654566934" duration="33822000" />
+      <workItem from="1630654566934" duration="40976000" />
     </task>
     <servers />
   </component>

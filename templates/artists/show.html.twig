@@ -11,7 +11,7 @@
                 <h3>Albums </h3>
                 
                 <div class="col-12 pb-5 d-flex">
-                    {% set  artistOne =  searchArtist(idArtist) %}
+                    {% set  artistOne =  searchArtist(idArtist, auth) %}
                     <img src="{{ artistOne.images[0].url }}" class="image-artist">
                     <div class="content-artist ps-5">
                         <h3 class="mb-3">{{ artistOne.name }}</h3>
@@ -38,7 +38,7 @@
                                          style="background: url('{{ item.images[0].url }}') center no-repeat;"></div>
                                 </td>
                                 <td>{{ item.name }}</td>
-                                {% set nameTrack = searchAlbumTracks(item.id) %}
+                                {% set nameTrack = searchAlbumTracks(item.id, auth) %}
                                 <td>{{ nameTrack.items[0].name }}</td>
 
                             </tr>

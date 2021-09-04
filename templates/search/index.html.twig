@@ -1,7 +1,21 @@
 {% extends 'base.html.twig' %}
 {% block header %}{% endblock %}
 {% block content %}
-    <section class="wrap-container">
+    <section class="wrap-container" id="search">
+        <div class="container">
+
+            <div class="filter">
+                <span>Country</span>
+                <select name="data-table-list_length" aria-controls="data-table-list" class="form-control input-sm"
+                        id="select_id">
+                    <option value="CO">CO</option>
+                    <option value="US">US</option>
+                    <option value="ES">ES</option>
+                    <option value="SE">SE</option>
+                </select>
+            </div>
+
+        </div>
         <div class="container">
             <div class="row">
                 {% for item in getDataApiSpotify.items %}
@@ -10,12 +24,13 @@
                             <img class="thumb-home img-fluid" src="{{ item.images[0].url }}">
                             <div class=" content_host">
                                 <a class="d-block title" href="{{ item.external_urls.spotify }}" target="_blank">
-                                    <span >{{ item.name }}</span>
+                                    <span>{{ item.name }}</span>
                                 </a>
 
                                 {% for artist in item.artists %}
-                                    <a class="subtitile_sho" href="{{ path('artists_show', {'idSpotify': artist.id}) }}">
-                                        <span >{{ artist.name }}</span><br>
+                                    <a class="subtitile_sho"
+                                       href="{{ path('artists_show', {'idSpotify': artist.id}) }}">
+                                        <span>{{ artist.name }}</span><br>
                                     </a>
                                 {% endfor %}
                             </div>
@@ -35,16 +50,17 @@
 {% endblock %}
 {% block myScripts %}
     <script>
-       var token = app.get('/login', function(req, res) {
-            var scopes = 'user-read-private user-read-email';
-            var my_client_id = '537293974a694d339662e43bfb88644a';
-            var redirect_uri =' {{ path('releases') }}'
-            res.redirect('https://accounts.spotify.com/authorize' +
-                '?response_type=code' +
-                '&client_id=' + my_client_id +
-                (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
-                '&redirect_uri=' + encodeURIComponent(redirect_uri));
-        });
-       console.log(token)
+        $('#select_id').change(function () {
+            var val = $(this).val();
+            $.ajax(
+                {
+                    url: "{{ path('releases') }}",
+                    data: {country: $(this).val()},
+                    success: function (result) {
+                        $("#search").html(result);
+                        $('#select_id option[value=' + val + ']').attr('selected', 'selected');
+                    }
+                });
+        })
     </script>
 {% endblock %}

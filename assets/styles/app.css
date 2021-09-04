@@ -124,6 +124,7 @@ table{
     padding: 5px 10px;
     background: #3c7df0;
     border-radius: 50px;
+    display: inline-block;
 }
 
 .thumb-home-mini {
@@ -137,7 +138,7 @@ table{
 }
 .wrap-container {
     background: black;
-    margin-top: 5%;
+    margin-top: 7%;
 }
 .image-music {
     background: white;
@@ -160,7 +161,30 @@ table{
     padding: 15px 5px;
 }
 
+
 #data-table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+#data-table-list * {
+    color: white;
+}
+
+#data-table-list tr th {
+    border-bottom: 3px white solid;
+    border-top: 1px white solid;
+    padding: 15px 5px;
+}
+
+#data-table-list tr td {
+    border-bottom: 1px white solid;
+    padding: 30px 60px;
+}
+
+
+#data-table-list{
     border-collapse: collapse;
     border-spacing: 0;
 }
@@ -177,6 +201,15 @@ div.dataTables_wrapper div.dataTables_length label, div.dataTables_wrapper div.d
     border: 3px solid white;
 }
 
+
+.image-artist-list {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
 .content-artist h3 {
     color: white !important;
     font-weight: 700;
@@ -184,6 +217,16 @@ div.dataTables_wrapper div.dataTables_length label, div.dataTables_wrapper div.d
 }
 .content-artist a {
     text-decoration: none;
+}
+
+.form-control {
+    width: 10%;
+    margin-top: 10px;
+}
+
+.filter {
+    margin-left: 50%;
+    color: white !important;
 }
 
 
